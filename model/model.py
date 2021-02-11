@@ -2,7 +2,7 @@ import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
 
 # Create a solver
-opt = pyo.SolverFactory('cplex', executable = '/opt/CPLEX/cplex/bin/x86-64_linux/cplex')
+opt = pyo.SolverFactory('cplex')
 
 #
 # A simple model with binary variables and

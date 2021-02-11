@@ -6,7 +6,7 @@ LABEL description =  "CPLEX minimal instalation"
 ARG COSDIR=/opt/CPLEX
 ARG CPX_PYVERSION=3.7
 
-RUN pip install pyomo
+RUN pip install pyomo numpy pandas matplotlib seaborn plotly
 
 COPY /cplex/cplex_studio.bin /tmp/cplex_studio.bin
 COPY /cplex/response.properties /tmp/response.properties
