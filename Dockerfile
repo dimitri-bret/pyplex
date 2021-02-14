@@ -34,13 +34,14 @@ RUN rm -rf \
    ${COSDIR}/cplex/readmeUNIX.html
 
 RUN ls -d ${COSDIR}/cplex/python/* | grep -v ${CPX_PYVERSION} | xargs rm -rf
-
-RUN echo "export PATH=${COSDIR}/cplex/bin/x86-64_linux/cplex" >> /root/.bashrc
+RUN echo "export PATH=${COSDIR}/cplex/bin/x86-64_linux" >> /root/.bashrc
 
 # Default user is cplex
 RUN adduser --disabled-password --gecos "" cplex 
 USER cplex
-WORKDIR /home/cplex
+WORKDIR /home/model
 
+ENV JOB_NAME "run.sh"
+ENV EXPERIENCE_NAME "EXP_1"
 
-CMD /bin/bash
+ENTRYPOINT python ${JOB_NAME} ${EXPERIENCE_NAME}
