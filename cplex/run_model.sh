@@ -5,8 +5,8 @@ EXPERIENCE_NAME=$2
 CPLEX_PATH=$3
 
 # export PATH="$CPLEX_PATH:$PATH"
-export PATH="/opt/cplex/$CPLEX_PATH:$PATH"
 
-echo "$JOB_NAME $EXPERIENCE_NAME $CPLEX_PATH"
+export PATH="/opt/CPLEX/cplex/bin/x86-64_linux:$PATH" ## TODO 
 
-python $JOB_NAME
+
+python $JOB_NAME $EXPERIENCE_NAME

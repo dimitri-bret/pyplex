@@ -57,4 +57,3 @@ RUN echo "COSDIR ${COSDIR}"
 
 ENTRYPOINT  /home/run_model.sh ${JOB_NAME} ${EXPERIENCE_NAME} "$COSDIR/cplex/bin/x86-64_linux"
 
-

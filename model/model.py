@@ -4,8 +4,6 @@ from pyomo.opt import SolverFactory
 # Create a solver
 opt = pyo.SolverFactory('cplex')
 
-
-print('LE SANG DE LEUR MORT')
 #
 # A simple model with binary variables and
 # an empty constraint list.
@@ -22,6 +20,3 @@ model.c = pyo.ConstraintList()
 instance = model.create_instance()
 results = opt.solve(instance)
 instance.display()
-
-print('la calote de c mor jysuce')
-
