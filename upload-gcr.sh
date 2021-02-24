@@ -10,5 +10,5 @@ TAG="1.0"
 docker build -t $IMAGE:$TAG .
 docker tag $IMAGE:$TAG $HOSTNAME/$PROJECT_ID/$IMAGE
 gcloud auth configure-docker
-docker tag pyplex $HOSTNAME/$PROJECT_ID/$IMAGE:$TAG
-docker push$HOSTNAME/$PROJECT_ID/$IMAGE:$TAG
+docker tag $IMAGE:$TAG $HOSTNAME/$PROJECT_ID/$IMAGE:$TAG
+docker push $HOSTNAME/$PROJECT_ID/$IMAGE:$TAG
