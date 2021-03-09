@@ -12,21 +12,17 @@ EXPERIENCE_NAME="CIRED"
 
 EXPERIENCE_IDENTIFIER="text_experience"
 
-chmod -R +r $MODEL_SOURCE
+
+
 gcloud compute scp --recurse $MODEL_SOURCE $INSTANCE:~/ESMO
 gcloud compute ssh $INSTANCE --command="chmod -R 777 ~/ESMO"
-gcloud compute ssh $INSTANCE --command="sudo usermod -a -G docker \${USER}"
-gcloud compute ssh $INSTANCE --command="docker-credential-gcr configure-docker"
+
+ ## -t -i
+IMAGE_NAME="eu.gcr.io/esmo-298221/pyplex:1.0"
+START_DATE=$(date '+%Y-%m-%d %H:%M:%S')
+
+gcloud compute ssh $INSTANCE --command="docker run --name mimie_jolie -e JOB_NAME=$JOB_NAME -e EXPERIENCE_NAME=$EXPERIENCE_NAME -v ~/ESMO:/home/cplex $IMAGE_NAME ; docker cp mimie_jolie:/home/cplex ~; docker container rm mimie_jolie"
+gcloud compute ssh $INSTANCE --command="gsutil cp -r ~/CPLEX_FINISHED/cplex gs://esmo-results"
 
 
-gcloud compute ssh $INSTANCE --command= \
-#     "docker run -t -i --rm \
-#     -n MIMIE_JOLIE  
-#     -e JOB_NAME=$JOB_NAME \
-#     -e EXPERIENCE_NAME=$EXPERIENCE_NAME \
-#     -v $MODEL_SOURCE:/home/cplex pyplex:1.0"
-
-
-
-gcloud compute ssh $INSTANCE --command=\
-"docker cp blissful_wiles:/home/cplex ~/cplex_finished_experience_identifier"
+#$EXPERIENCE_NAME-$EXPERIENCE_IDENTIFIER-$START_DATE

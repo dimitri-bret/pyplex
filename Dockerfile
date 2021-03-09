@@ -39,4 +39,4 @@ COPY /cplex/run_model.sh /home/run_model.sh
 ENV JOB_NAME "job"
 ENV EXPERIENCE_NAME "EXP_1"
 
-ENTRYPOINT  /home/run_model.sh ${JOB_NAME} ${EXPERIENCE_NAME} "$COSDIR/cplex/bin/x86-64_linux"
+ENTRYPOINT  /home/run_model.sh ${JOB_NAME} ${EXPERIENCE_NAME}

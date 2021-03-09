@@ -2,10 +2,6 @@
 MODEL_SOURCE="/mnt/c/Projects/ESMO"
 JOB_NAME="runscenario_cired.py"
 
-
-# MODEL_SOURCE="/mnt/c/Projects/docker-cplex/model"
-# JOB_NAME="model.py"
-
 EXPERIENCE_NAME="CIRED"
 
 docker run -t -i --rm \
